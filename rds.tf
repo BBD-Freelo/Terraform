@@ -36,7 +36,7 @@ resource "aws_security_group" "allow_postgres" {
 }
 
 resource "aws_db_instance" "Freelo" {
-  identifier             = "Freelo"
+  identifier             = "freelo"
   engine                 = "postgres"
   instance_class         = "db.t3.micro"
   allocated_storage      = 20
