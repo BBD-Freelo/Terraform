@@ -11,6 +11,21 @@ resource "aws_cognito_user_pool" "user_pool" {
     require_symbols   = true
     require_uppercase = true
   }
+
+  schema {
+    name                     = "email"
+    attribute_data_type      = "String"
+    developer_only_attribute = false
+    mutable                  = true
+    required                 = true
+
+    string_attribute_constraints {
+      min_length = 1
+      max_length = 256
+    }
+  }
+
+  alias_attributes = ["email"]
 }
 
 resource "aws_cognito_user_pool_client" "user_pool_client" {
